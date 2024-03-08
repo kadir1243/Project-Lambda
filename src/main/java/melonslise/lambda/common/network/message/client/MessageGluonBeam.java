@@ -6,12 +6,12 @@ import melonslise.lambda.client.effect.EffectHandler;
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
+import net.minecraftforge.fml.common.network.simpleimpl.ICustomConfigurationTask;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessageHandler;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 
 // TODO Don't use double?
-public class MessageGluonBeam implements IMessage
+public class MessageGluonBeam implements ICustomConfigurationTask
 {
 	private int source;
 
@@ -37,10 +37,10 @@ public class MessageGluonBeam implements IMessage
 
 
 	// TODO Null check
-	public static class Handler implements IMessageHandler<MessageGluonBeam, IMessage>
+	public static class Handler implements IMessageHandler<MessageGluonBeam, ICustomConfigurationTask>
 	{
 		@Override
-		public IMessage onMessage(MessageGluonBeam message, MessageContext context)
+		public ICustomConfigurationTask onMessage(MessageGluonBeam message, MessageContext context)
 		{
 			Minecraft mc = Minecraft.getMinecraft();
 			Runnable action = new Runnable()

@@ -56,7 +56,7 @@ import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.math.Vec3i;
 import net.minecraft.world.World;
 import net.minecraftforge.client.ForgeHooksClient;
-import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
+import net.minecraftforge.fml.common.network.simpleimpl.ICustomConfigurationTask;
 import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 
 // TODO Better categories
@@ -211,7 +211,7 @@ public class LambdaUtilities
 	/**
 	 * Sends a message to all listeners tracking the given player as well as the player themself.
 	 */
-	public static void sendToAllTrackingAndPlayer(EntityPlayerMP player, SimpleNetworkWrapper network, IMessage message)
+	public static void sendToAllTrackingAndPlayer(EntityPlayerMP player, SimpleNetworkWrapper network, ICustomConfigurationTask message)
 	{
 		network.sendToAllTracking(message, player);
 		network.sendTo(message, player);

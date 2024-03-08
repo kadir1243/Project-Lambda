@@ -12,7 +12,7 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
-import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
+import net.minecraftforge.fml.common.network.simpleimpl.ICustomConfigurationTask;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessageHandler;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 
@@ -55,10 +55,10 @@ public class ClientMessageUseTile extends ServerMessageUseTile
 
 
 
-	public static class Handler implements IMessageHandler<ClientMessageUseTile, IMessage>
+	public static class Handler implements IMessageHandler<ClientMessageUseTile, ICustomConfigurationTask>
 	{
 		@Override
-		public IMessage onMessage(ClientMessageUseTile message, MessageContext context)
+		public ICustomConfigurationTask onMessage(ClientMessageUseTile message, MessageContext context)
 		{
 			Minecraft mc = Minecraft.getMinecraft();
 			Runnable action = new Runnable()

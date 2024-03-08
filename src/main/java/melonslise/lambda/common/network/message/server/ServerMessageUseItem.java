@@ -6,7 +6,7 @@ import melonslise.lambda.common.network.message.api.AMessageUse;
 import melonslise.lambda.utility.LambdaUtilities;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.util.EnumHand;
-import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
+import net.minecraftforge.fml.common.network.simpleimpl.ICustomConfigurationTask;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessageHandler;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 
@@ -43,10 +43,10 @@ public class ServerMessageUseItem extends AMessageUse
 
 
 
-	public static class Handler implements IMessageHandler<ServerMessageUseItem, IMessage>
+	public static class Handler implements IMessageHandler<ServerMessageUseItem, ICustomConfigurationTask>
 	{
 		@Override
-		public IMessage onMessage(ServerMessageUseItem message, MessageContext context)
+		public ICustomConfigurationTask onMessage(ServerMessageUseItem message, MessageContext context)
 		{
 			EntityPlayerMP player = context.getServerHandler().player;
 			Runnable action = new Runnable()

@@ -7,11 +7,11 @@ import melonslise.lambda.common.sound.moving.MovingSoundVortigaunt;
 import melonslise.lambda.utility.LambdaUtilities;
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.Entity;
-import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
+import net.minecraftforge.fml.common.network.simpleimpl.ICustomConfigurationTask;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessageHandler;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 
-public class MessageVortigaunt implements IMessage
+public class MessageVortigaunt implements ICustomConfigurationTask
 {
 	private int id, value;
 	private EVortigauntAction action;
@@ -43,10 +43,10 @@ public class MessageVortigaunt implements IMessage
 
 
 
-	public static class Handler implements IMessageHandler<MessageVortigaunt, IMessage>
+	public static class Handler implements IMessageHandler<MessageVortigaunt, ICustomConfigurationTask>
 	{
 		@Override
-		public IMessage onMessage(MessageVortigaunt message, MessageContext context)
+		public ICustomConfigurationTask onMessage(MessageVortigaunt message, MessageContext context)
 		{
 			Minecraft mc = Minecraft.getMinecraft();
 			Runnable runnable = new Runnable()

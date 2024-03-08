@@ -23,13 +23,7 @@ import net.minecraft.util.EntitySelectors;
 public class LambdaSelectors
 {
 	// TODO Predicates and
-	public static final Predicate<Entity> NOT_SPECTATING_LIVING_PLAYER = new Predicate<Entity>()
-	{
-		public boolean apply(@Nullable Entity entity)
-		{
-			return entity instanceof EntityPlayer && entity.isEntityAlive() && !((EntityPlayer) entity).isSpectator();
-		}
-	};
+	public static final Predicate<Entity> NOT_SPECTATING_LIVING_PLAYER = entity -> entity instanceof EntityPlayer && entity.isEntityAlive() && !((EntityPlayer) entity).isSpectator();
 
 	public static final Predicate<Entity> PROJECTILE_TARGETS = Predicates.and(EntitySelectors.NOT_SPECTATING, EntitySelectors.IS_ALIVE, new Predicate<Entity>()
 	{
@@ -39,55 +33,23 @@ public class LambdaSelectors
 		}
 	});
 
-	public static final Predicate<Entity> HOUNDEYE_TARGETS = Predicates.and(PROJECTILE_TARGETS, new Predicate<Entity>()
-	{
-		public boolean apply(@Nullable Entity entity)
-		{
-			return !(entity instanceof EntityHoundeye);
-		}
-	});
+	public static final Predicate<Entity> HOUNDEYE_TARGETS = Predicates.and(PROJECTILE_TARGETS, (Predicate<Entity>) entity -> !(entity instanceof EntityHoundeye));
 
-	public static final Predicate<Entity> SNARK_TARGETS = Predicates.and(PROJECTILE_TARGETS, new Predicate<Entity>()
-	{
-		public boolean apply(@Nullable Entity entity)
-		{
-			return !(entity instanceof EntitySnark); //!(entity instanceof EntityPlayer) && 
-		}
-	});
+	public static final Predicate<Entity> SNARK_TARGETS = Predicates.and(PROJECTILE_TARGETS, (Predicate<Entity>) entity -> {
+        return !(entity instanceof EntitySnark); //!(entity instanceof EntityPlayer) &&
+    });
 
-	public static final Predicate<Entity> SENTRY_TARGETS = Predicates.and(PROJECTILE_TARGETS, new Predicate<Entity>()
-	{
-		public boolean apply(@Nullable Entity entity)
-		{
-			return !(entity instanceof EntitySentry);
-		}
-	});
+	public static final Predicate<Entity> SENTRY_TARGETS = Predicates.and(PROJECTILE_TARGETS, (Predicate<Entity>) entity -> !(entity instanceof EntitySentry));
 
-	public static final Predicate<Entity> HORNET_TARGETS = Predicates.and(PROJECTILE_TARGETS, new Predicate<Entity>()
-	{
-		public boolean apply(@Nullable Entity entity)
-		{
-			return !(entity instanceof EntityHornet) && entity instanceof EntityLiving;
-		}
-	});
+	public static final Predicate<Entity> HORNET_TARGETS = Predicates.and(PROJECTILE_TARGETS, (Predicate<Entity>) entity -> !(entity instanceof EntityHornet) && entity instanceof EntityLiving);
 
 	// TODO Packed ice shatter?
-	public static final Predicate<IBlockState> SHATTERABLES = new Predicate<IBlockState>()
-	{
-		public boolean apply(@Nullable IBlockState state)
-		{
-			Material material = state.getMaterial();
-			return material == Material.GLASS || material == Material.ICE || material == Material.PACKED_ICE;
-		}
-	};
+	public static final Predicate<IBlockState> SHATTERABLES = state -> {
+        Material material = state.getMaterial();
+        return material == Material.GLASS || material == Material.ICE || material == Material.PACKED_ICE;
+    };
 
-	public static final Predicate<IBlockState> SOLIDS = new Predicate<IBlockState>()
-	{
-		public boolean apply(@Nullable IBlockState state)
-		{
-			return state.getMaterial().blocksMovement();
-		}
-	};
+	public static final Predicate<IBlockState> SOLIDS = state -> state.getMaterial().blocksMovement();
 
 	private LambdaSelectors() {};
 }

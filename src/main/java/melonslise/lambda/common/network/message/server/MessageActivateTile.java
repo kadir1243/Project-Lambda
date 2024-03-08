@@ -8,11 +8,11 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
-import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
+import net.minecraftforge.fml.common.network.simpleimpl.ICustomConfigurationTask;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessageHandler;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 
-public class MessageActivateTile implements IMessage
+public class MessageActivateTile implements ICustomConfigurationTask
 {
 	private BlockPos position;
 	private EnumFacing side;
@@ -60,10 +60,10 @@ public class MessageActivateTile implements IMessage
 
 
 
-	public static class Handler implements IMessageHandler<MessageActivateTile, IMessage>
+	public static class Handler implements IMessageHandler<MessageActivateTile, ICustomConfigurationTask>
 	{
 		@Override
-		public IMessage onMessage(MessageActivateTile message, MessageContext context)
+		public ICustomConfigurationTask onMessage(MessageActivateTile message, MessageContext context)
 		{
 			/* TODO
 			this.player.connection.sendPacket(new SPacketBlockChange(worldserver, blockpos));

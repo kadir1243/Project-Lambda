@@ -25,7 +25,7 @@ public class EntityImpactGrenade extends AEntityProjectile
 		this.explode();
 	}
 
-	// TODO Side?
+	// TODO Dist?
 	@Override
 	public void onUpdate()
 	{

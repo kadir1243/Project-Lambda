@@ -8,8 +8,8 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemMonsterPlacer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.NonNullList;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
+import net.neoforged.api.distmarker.Dist;
+import net.neoforged.api.distmarker.OnlyIn;
 
 public class CreativeTabLambda extends CreativeTabs
 {
@@ -18,14 +18,14 @@ public class CreativeTabLambda extends CreativeTabs
 		super(LambdaCore.ID);
 	}
 
-	@SideOnly(Side.CLIENT)
+	@OnlyIn(Dist.CLIENT)
 	@Override
 	public ItemStack getTabIconItem()
 	{
 		return new ItemStack(LambdaItems.weapon_crowbar);
 	}
 
-	@SideOnly(Side.CLIENT)
+	@OnlyIn(Dist.CLIENT)
 	public void displayAllRelevantItems(NonNullList<ItemStack> stacks)
 	{
 		super.displayAllRelevantItems(stacks);

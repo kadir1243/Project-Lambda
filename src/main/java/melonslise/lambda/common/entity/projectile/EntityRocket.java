@@ -41,7 +41,7 @@ public class EntityRocket extends AEntityProjectile
 
 	// TODO Distance
 	// TODO Hit entities
-	// TODO Side?
+	// TODO Dist?
 	@Override
 	public void onUpdate()
 	{

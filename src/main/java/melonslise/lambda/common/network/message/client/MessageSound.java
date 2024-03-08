@@ -12,11 +12,11 @@ import net.minecraft.client.audio.ISound;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.SoundCategory;
-import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
+import net.minecraftforge.fml.common.network.simpleimpl.ICustomConfigurationTask;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessageHandler;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 
-public class MessageSound implements IMessage
+public class MessageSound implements ICustomConfigurationTask
 {
 	private int id;
 	private ESound sound;
@@ -45,10 +45,10 @@ public class MessageSound implements IMessage
 
 
 
-	public static class Handler implements IMessageHandler<MessageSound, IMessage>
+	public static class Handler implements IMessageHandler<MessageSound, ICustomConfigurationTask>
 	{
 		@Override
-		public IMessage onMessage(MessageSound message, MessageContext context)
+		public ICustomConfigurationTask onMessage(MessageSound message, MessageContext context)
 		{
 			Minecraft mc = Minecraft.getMinecraft();
 			Runnable action = new Runnable()

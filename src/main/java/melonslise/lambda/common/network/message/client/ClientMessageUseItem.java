@@ -8,7 +8,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.EnumHand;
 import net.minecraft.world.World;
-import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
+import net.minecraftforge.fml.common.network.simpleimpl.ICustomConfigurationTask;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessageHandler;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 
@@ -50,10 +50,10 @@ public class ClientMessageUseItem extends ServerMessageUseItem
 
 
 
-	public static class Handler implements IMessageHandler<ClientMessageUseItem, IMessage>
+	public static class Handler implements IMessageHandler<ClientMessageUseItem, ICustomConfigurationTask>
 	{
 		@Override
-		public IMessage onMessage(ClientMessageUseItem message, MessageContext context)
+		public ICustomConfigurationTask onMessage(ClientMessageUseItem message, MessageContext context)
 		{
 			Minecraft mc = Minecraft.getMinecraft();
 			Runnable action = new Runnable()

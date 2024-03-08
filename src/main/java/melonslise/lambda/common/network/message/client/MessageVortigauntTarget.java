@@ -6,11 +6,11 @@ import melonslise.lambda.utility.LambdaUtilities;
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.math.Vec3d;
-import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
+import net.minecraftforge.fml.common.network.simpleimpl.ICustomConfigurationTask;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessageHandler;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 
-public class MessageVortigauntTarget implements IMessage
+public class MessageVortigauntTarget implements ICustomConfigurationTask
 {
 	private int id;
 	private Vec3d target;
@@ -39,10 +39,10 @@ public class MessageVortigauntTarget implements IMessage
 
 
 
-	public static class Handler implements IMessageHandler<MessageVortigauntTarget, IMessage>
+	public static class Handler implements IMessageHandler<MessageVortigauntTarget, ICustomConfigurationTask>
 	{
 		@Override
-		public IMessage onMessage(MessageVortigauntTarget message, MessageContext context)
+		public ICustomConfigurationTask onMessage(MessageVortigauntTarget message, MessageContext context)
 		{
 			Minecraft mc = Minecraft.getMinecraft();
 			Runnable runnable = new Runnable()

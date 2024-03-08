@@ -17,8 +17,8 @@ import net.minecraftforge.client.event.RenderGameOverlayEvent;
 import net.minecraftforge.client.event.RenderGameOverlayEvent.ElementType;
 import net.minecraftforge.common.util.EnumHelper;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
+import net.neoforged.api.distmarker.Dist;
+import net.neoforged.api.distmarker.OnlyIn;
 
 // TODO Try ISpecialArmor
 // TODO Interface for reduction?
@@ -39,8 +39,8 @@ public abstract class AItemSuit extends ItemArmor
 	@Nullable
 	public abstract String getArmorTexture(ItemStack stack, Entity entity, EntityEquipmentSlot slot, String type);
 
-	// TODO Careful with SideOnly
-	@SideOnly(Side.CLIENT)
+	// TODO Careful with OnlyIn
+	@OnlyIn(Dist.CLIENT)
 	public void renderDisplay(RenderGameOverlayEvent.Pre event)
 	{
 		if(event.getType() == ElementType.HEALTH) event.setCanceled(true);

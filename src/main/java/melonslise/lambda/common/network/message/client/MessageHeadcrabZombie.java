@@ -6,11 +6,11 @@ import melonslise.lambda.common.sound.LambdaSounds;
 import melonslise.lambda.utility.LambdaUtilities;
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.Entity;
-import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
+import net.minecraftforge.fml.common.network.simpleimpl.ICustomConfigurationTask;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessageHandler;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 
-public class MessageHeadcrabZombie implements IMessage
+public class MessageHeadcrabZombie implements ICustomConfigurationTask
 {
 	private int id, value;
 	private EHeadcrabZombieAction action;
@@ -42,10 +42,10 @@ public class MessageHeadcrabZombie implements IMessage
 
 
 
-	public static class Handler implements IMessageHandler<MessageHeadcrabZombie, IMessage>
+	public static class Handler implements IMessageHandler<MessageHeadcrabZombie, ICustomConfigurationTask>
 	{
 		@Override
-		public IMessage onMessage(MessageHeadcrabZombie message, MessageContext context)
+		public ICustomConfigurationTask onMessage(MessageHeadcrabZombie message, MessageContext context)
 		{
 			Minecraft mc = Minecraft.getMinecraft();
 			Runnable runnable = new Runnable()

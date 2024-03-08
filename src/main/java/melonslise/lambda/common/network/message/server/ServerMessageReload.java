@@ -4,12 +4,12 @@ import io.netty.buffer.ByteBuf;
 import melonslise.lambda.utility.LambdaUtilities;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.util.EnumHand;
-import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
+import net.minecraftforge.fml.common.network.simpleimpl.ICustomConfigurationTask;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessageHandler;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 
 // TODO send state too to stop?
-public class ServerMessageReload implements IMessage
+public class ServerMessageReload implements ICustomConfigurationTask
 {
 	private EnumHand hand;
 
@@ -39,10 +39,10 @@ public class ServerMessageReload implements IMessage
 
 
 
-	public static class Handler implements IMessageHandler<ServerMessageReload, IMessage>
+	public static class Handler implements IMessageHandler<ServerMessageReload, ICustomConfigurationTask>
 	{
 		@Override
-		public IMessage onMessage(ServerMessageReload message, MessageContext context)
+		public ICustomConfigurationTask onMessage(ServerMessageReload message, MessageContext context)
 		{
 			EntityPlayerMP player = context.getServerHandler().player;
 			Runnable action = new Runnable()

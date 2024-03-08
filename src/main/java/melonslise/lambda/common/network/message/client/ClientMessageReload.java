@@ -8,7 +8,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.EnumHand;
 import net.minecraft.world.World;
-import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
+import net.minecraftforge.fml.common.network.simpleimpl.ICustomConfigurationTask;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessageHandler;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 
@@ -59,10 +59,10 @@ public class ClientMessageReload extends ServerMessageReload
 
 
 
-	public static class Handler implements IMessageHandler<ClientMessageReload, IMessage>
+	public static class Handler implements IMessageHandler<ClientMessageReload, ICustomConfigurationTask>
 	{
 		@Override
-		public IMessage onMessage(ClientMessageReload message, MessageContext context)
+		public ICustomConfigurationTask onMessage(ClientMessageReload message, MessageContext context)
 		{
 			Minecraft mc = Minecraft.getMinecraft();
 			Runnable action = new Runnable()

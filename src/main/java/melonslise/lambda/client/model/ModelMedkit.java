@@ -3,7 +3,10 @@ package melonslise.lambda.client.model;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
+import net.neoforged.api.distmarker.Dist;
+import net.neoforged.api.distmarker.OnlyIn;
 
+@OnlyIn(Dist.CLIENT)
 public class ModelMedkit extends ModelBase
 {
 	protected ModelRenderer shape1, shapea, shape2, shape3, shape4;

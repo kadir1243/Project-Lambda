@@ -7,11 +7,11 @@ import melonslise.lambda.utility.LambdaUtilities;
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.math.Vec3d;
-import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
+import net.minecraftforge.fml.common.network.simpleimpl.ICustomConfigurationTask;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessageHandler;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 
-public class MessageTauBeam implements IMessage
+public class MessageTauBeam implements ICustomConfigurationTask
 {
 	private int source;
 	private Vec3d start, end;
@@ -48,10 +48,10 @@ public class MessageTauBeam implements IMessage
 
 
 	// TODO Pass id instead of entity?
-	public static class Handler implements IMessageHandler<MessageTauBeam, IMessage>
+	public static class Handler implements IMessageHandler<MessageTauBeam, ICustomConfigurationTask>
 	{
 		@Override
-		public IMessage onMessage(MessageTauBeam message, MessageContext context)
+		public ICustomConfigurationTask onMessage(MessageTauBeam message, MessageContext context)
 		{
 			Minecraft mc = Minecraft.getMinecraft();
 			Runnable action = new Runnable()

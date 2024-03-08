@@ -49,14 +49,14 @@ import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.client.event.RenderGameOverlayEvent;
 import net.minecraftforge.client.event.RenderLivingEvent;
 import net.minecraftforge.event.entity.EntityJoinWorldEvent;
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.neoforged.fml.common.Mod;
+import net.neoforged.bus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent.Phase;
-import net.minecraftforge.fml.relauncher.Side;
+import net.neoforged.api.distmarker.Dist;
 
 // TODO Add remote checks
-@Mod.EventBusSubscriber(modid = LambdaCore.ID, value = Side.CLIENT)
+@Mod.EventBusSubscriber(modid = LambdaCore.ID, value = Dist.CLIENT)
 public class LambdaClientEvents
 {
 	private LambdaClientEvents() {};

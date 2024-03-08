@@ -6,8 +6,11 @@ import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.Entity;
+import net.neoforged.api.distmarker.Dist;
+import net.neoforged.api.distmarker.OnlyIn;
 
 // TODO Move?
+@OnlyIn(Dist.CLIENT)
 public class ModelSentry extends ModelBase
 {
 	ModelRenderer chassis, leg0, leg10, leg11, contact, side0, side1, top, sensor, gun0, gun1;

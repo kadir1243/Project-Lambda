@@ -7,11 +7,11 @@ import melonslise.lambda.common.sound.moving.MovingSoundHoundeye;
 import melonslise.lambda.utility.LambdaUtilities;
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.Entity;
-import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
+import net.minecraftforge.fml.common.network.simpleimpl.ICustomConfigurationTask;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessageHandler;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 
-public class MessageHoundeye implements IMessage
+public class MessageHoundeye implements ICustomConfigurationTask
 {
 	private int id, value;
 	private EHoundeyeAction action;
@@ -43,10 +43,10 @@ public class MessageHoundeye implements IMessage
 
 
 
-	public static class Handler implements IMessageHandler<MessageHoundeye, IMessage>
+	public static class Handler implements IMessageHandler<MessageHoundeye, ICustomConfigurationTask>
 	{
 		@Override
-		public IMessage onMessage(MessageHoundeye message, MessageContext context)
+		public ICustomConfigurationTask onMessage(MessageHoundeye message, MessageContext context)
 		{
 			Minecraft mc = Minecraft.getMinecraft();
 			Runnable runnable = new Runnable()

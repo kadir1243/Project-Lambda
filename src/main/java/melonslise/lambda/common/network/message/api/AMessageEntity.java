@@ -3,9 +3,9 @@ package melonslise.lambda.common.network.message.api;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.Entity;
 import net.minecraft.world.World;
-import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
+import net.minecraftforge.fml.common.network.simpleimpl.ICustomConfigurationTask;
 
-public abstract class AMessageEntity implements IMessage
+public abstract class AMessageEntity implements ICustomConfigurationTask
 {
 	private int id;
 

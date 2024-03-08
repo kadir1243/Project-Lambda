@@ -4,11 +4,11 @@ import io.netty.buffer.ByteBuf;
 import melonslise.lambda.common.entity.alien.EntityBarnacle;
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.Entity;
-import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
+import net.minecraftforge.fml.common.network.simpleimpl.ICustomConfigurationTask;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessageHandler;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 
-public class MessageBarnacle implements IMessage
+public class MessageBarnacle implements ICustomConfigurationTask
 {
 	private int entityID;
 	private double tongueLength;
@@ -37,10 +37,10 @@ public class MessageBarnacle implements IMessage
 
 
 
-	public static class Handler implements IMessageHandler<MessageBarnacle, IMessage>
+	public static class Handler implements IMessageHandler<MessageBarnacle, ICustomConfigurationTask>
 	{
 		@Override
-		public IMessage onMessage(MessageBarnacle message, MessageContext context)
+		public ICustomConfigurationTask onMessage(MessageBarnacle message, MessageContext context)
 		{
 			Minecraft mc = Minecraft.getMinecraft();
 			Runnable runnable = new Runnable()

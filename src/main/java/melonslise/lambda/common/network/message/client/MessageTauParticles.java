@@ -8,11 +8,11 @@ import melonslise.lambda.utility.LambdaUtilities;
 import net.minecraft.client.Minecraft;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.math.Vec3i;
-import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
+import net.minecraftforge.fml.common.network.simpleimpl.ICustomConfigurationTask;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessageHandler;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 
-public class MessageTauParticles implements IMessage
+public class MessageTauParticles implements ICustomConfigurationTask
 {
 	private Vec3d point;
 	private Vec3i normal;
@@ -48,10 +48,10 @@ public class MessageTauParticles implements IMessage
 	// TODO More spread?
 	// TODO params configurable?
 	// TODO Move spread away from here
-	public static class Handler implements IMessageHandler<MessageTauParticles, IMessage>
+	public static class Handler implements IMessageHandler<MessageTauParticles, ICustomConfigurationTask>
 	{
 		@Override
-		public IMessage onMessage(MessageTauParticles message, MessageContext context)
+		public ICustomConfigurationTask onMessage(MessageTauParticles message, MessageContext context)
 		{
 			Minecraft mc = Minecraft.getMinecraft();
 			Runnable action = new Runnable()

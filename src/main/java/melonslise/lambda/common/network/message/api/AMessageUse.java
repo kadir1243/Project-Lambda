@@ -1,9 +1,9 @@
 package melonslise.lambda.common.network.message.api;
 
 import io.netty.buffer.ByteBuf;
-import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
+import net.minecraftforge.fml.common.network.simpleimpl.ICustomConfigurationTask;
 
-public abstract class AMessageUse implements IMessage
+public abstract class AMessageUse implements ICustomConfigurationTask
 {
 	private boolean state;
 	private int type;
